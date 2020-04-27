@@ -134,7 +134,6 @@ public class AStarManager : MonoBehaviour
     /// </summary>
     void ChangeCamera()
     {
-        print(col);
         float x = minX + (float)row / 2 - 0.5f;
         float y = row > col ? row : col;
         float z = minZ + (float)col / 2 - 0.5f;
