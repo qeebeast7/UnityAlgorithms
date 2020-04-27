@@ -96,7 +96,10 @@ public class AStarManager : MonoBehaviour
         while (!start.canWalk)
         {
             start = nodes[Random.Range(0, row), Random.Range(0, col)];
-            if (start == end) continue;
+        }
+        while (start==end)
+        {
+            start = nodes[Random.Range(0, row), Random.Range(0, col)];
         }
         ChangeColor(start.gameObject, "Yellow");
         //设置终点（除障碍和终点）
@@ -104,7 +107,10 @@ public class AStarManager : MonoBehaviour
         while (!end.canWalk)
         {
             end = nodes[Random.Range(0, row), Random.Range(0, col)];
-            if (end == start) continue;
+        }
+        while (end==start)
+        {
+            end = nodes[Random.Range(0, row), Random.Range(0, col)];
         }
         ChangeColor(end.gameObject, "Blue");
         //初始化AStar

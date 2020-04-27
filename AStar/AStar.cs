@@ -46,14 +46,6 @@ public class AStar {
         //init start and end
         this.start = start;
         this.end = end;
-        if (!IsAllow(start))
-        {
-            Debug.Log("start is not allow");
-        }
-        if (!IsAllow(end))
-        {
-            Debug.Log("end is not allow");
-        }
     }
     /// <summary>
     /// AStar寻路
