@@ -21,8 +21,8 @@ public class AStarManager : MonoBehaviour
     {
         path = new List<GameObject>();
         //get row and col
-        row = maxZ - minZ;
-        col = maxX - minX;
+        row = maxZ - minZ+1;
+        col = maxX - minX+1;
         //init nodes
         nodes = new Node[row, col];
         //创建并寻路
@@ -49,7 +49,7 @@ public class AStarManager : MonoBehaviour
         {
             for (int j = 0; j < col; j++)
             {
-                GameObject obj = Instantiate(cube, new Vector3(minX + i, 0, minZ + j), Quaternion.identity);
+                GameObject obj = Instantiate(cube, new Vector3(minX + j, 0, minZ + i), Quaternion.identity);
                 Node node = obj.GetComponent<Node>();
                 //设置坐标
                 node.x = i;
@@ -140,9 +140,9 @@ public class AStarManager : MonoBehaviour
     /// </summary>
     void ChangeCamera()
     {
-        float x = minX + (float)row / 2 - 0.5f;
+        float x = minX + (float)col / 2 - 0.5f;
         float y = row > col ? row : col;
-        float z = minZ + (float)col / 2 - 0.5f;
+        float z = minZ + (float)row / 2 - 0.5f;
         Camera.main.transform.position = new Vector3(x, y, z);
     }
 }
